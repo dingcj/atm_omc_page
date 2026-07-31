@@ -101,6 +101,11 @@ if (param) {
   document.getElementById('duInput').value = param;
   doSearch();
 }
+
+// 注册 Service Worker：每次打开页面自动校验服务器是否有新版本，避免旧缓存
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+}
 </script>
 </body>
 </html>
